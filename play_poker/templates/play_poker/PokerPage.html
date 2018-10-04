@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Place Holder Poker Page
+{% endblock %}
+
+{% block content %}
+<p>
+    You were dealt:<br>
+    {% for card in hand %}
+        {{ card.value }} of {{ card.suit }}<br>
+    {% endfor %}
+</p>
+
+
+{% next_button %}
+
+{% endblock %}

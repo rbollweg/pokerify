@@ -8,4 +8,4 @@ To install/get local version working: \
 -use command pip install -r requirements.txt\
 -use command otree devserver\
 \
-you should now have a devserver up at http://localhost:8000/demo/\
+you should now have a devserver up at http://localhost:8000/demo/

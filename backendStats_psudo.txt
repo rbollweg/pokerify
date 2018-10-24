@@ -1,0 +1,14 @@
+input: hand
+outpit: odds of winning
+----------------------------------------------------------
+
+//get hand type
+handType=getHandType();
+
+//odds of highr hand minuse 1 (1-(H1+H2+...Hn))
+
+oddsOfLose=0
+for each higher in PosiibleHand
+	oddsOfLose+=higher.odds
+	
+return 1-oddsOfLose

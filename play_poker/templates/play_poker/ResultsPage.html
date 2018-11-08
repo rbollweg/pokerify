@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Place Holder Poker Page
+{% endblock %}
+
+{% block content %}
+<p>
+    Player won hand? {{ winner }} <br>
+    Was it a tie? {{ tie }}<br>
+    Hand Type was: {{ hand_type }}
+
+</p>
+
+
+{% next_button %}
+
+{% endblock %}

@@ -16,8 +16,9 @@ SESSION_CONFIGS = [
     {
         'name': 'pokerify',
         'display_name': "pokerify",
-        'num_demo_participants': 4,
+        'num_demo_participants': 2,
         'app_sequence': ['play_poker'],
+        'set_up': False,
     }
 ]
 # see the end of this file for the inactive session configs

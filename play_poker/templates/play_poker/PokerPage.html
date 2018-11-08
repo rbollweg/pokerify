@@ -5,15 +5,51 @@
     Place Holder Poker Page
 {% endblock %}
 
+{% block scripts %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{% static "play_poker/PokerPage.css" %}" rel="stylesheet">
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+{% endblock %}
+
+
 {% block content %}
-<p>
-    You were dealt:<br>
-    {% for card in hand %}
-        {{ card.value }} of {{ card.suit }}<br>
-    {% endfor %}
-</p>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <div id="sideNavStats" class="sidenavStats">
+
+            <p style="color:black;font-size:35px;font-weight: bold; font-family: Century Gothic;">Statistics <br>
+                <span class="tooltip" style="font-size: 20px; color:gray; font-family: Impact;">Information
+   <span class="tooltiptext">This section displays which hands you should play and which can beat yours. </span></span>
+            </p>
+            <p>Your current hand is:<br>{{ hand_type }}</p>
+            <p>Your best out:<br>Placeholder</p>
+            <p>Likelihood that your hand wins:<br> {{ odds }}%</p>
+            <p>Hands that beat yours: <br>Placeholder</p>
+
+        </div>
+
+    </div>
+
+    <span class="fa fa-bar-chart" style="font-size:30px;cursor:pointer" onclick="openNav()"> </span>
+    <p>
+        You were dealt:<br>
+        {% for card in hand %}
+            {{ card.value }} of {{ card.suit }}<br>
+        {% endfor %}
+        <br>
+    </p>
 
 
-{% next_button %}
+    {% next_button %}
 
 {% endblock %}

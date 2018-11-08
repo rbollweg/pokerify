@@ -8,5 +8,5 @@ from .models import Constants
 class PlayerBot(Bot):
 
     def play_round(self):
-        yield (pages.Allocations, {'allocation_selection': random.randint(0, 3)})
-        yield (pages.Results)
+        yield (pages.PokerPage)
+        yield (pages.ResultsPage)

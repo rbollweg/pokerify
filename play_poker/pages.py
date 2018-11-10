@@ -1,14 +1,9 @@
-from otree.api import Currency as c, currency_range
-from otree.api import widgets
-from pandas import json
+
 from ._builtin import Page, WaitPage
 from .models import Constants
-from django.forms import modelformset_factory
-import random
-import ast
 from play_poker.backend_stats import odds_of_winning
 from play_poker.poker_controller import PokerGame, Round, get_hand_type, determine_hand_winner
-from django import forms
+import json
 
 
 def convert_hand_type_to_text(hand_type):
@@ -34,6 +29,13 @@ def convert_hand_type_to_text(hand_type):
         return 'Royal Flush'
 
 
+def convert_hand_to_json(hand):
+    card_list = []
+    for card in hand:
+        card_list.append(card.__dict__)
+    return json.dumps(card_list)
+
+
 class PokerPage(Page):
     form_model = 'player'
     form_fields = []
@@ -43,7 +45,8 @@ class PokerPage(Page):
         hand_type = convert_hand_type_to_text(get_hand_type(self.player.get_hand()))
         if odds == 0:  # Statistics for card high needs to be updated, this is an approximation for high card winning for Ace high
             odds = 7.736
-        return {'hand': self.player.convert_to_text(self.player.get_hand()), 'odds': odds, 'hand_type': hand_type}
+        converted_hand = self.player.convert_to_text(self.player.get_hand())
+        return {'hand': convert_hand_to_json(converted_hand), 'odds': odds, 'hand_type': hand_type}
 
 
 class PokerWaitPage(WaitPage):

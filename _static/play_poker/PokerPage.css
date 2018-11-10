@@ -1,6 +1,11 @@
 body {
     font-family: "Lato", sans-serif;
 }
+
+.otree-body {
+    max-width: 100%;
+}
+
 .tooltip {
     position: relative;
     display: inline-block;
@@ -36,12 +41,11 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #DCDCDC ;
+    background-color: #DCDCDC;
     overflow-x: hidden;
     padding-top: 10px;
-    outline: 2px solid  #808080;
+    outline: 2px solid #808080;
     transition: 0.5s;
-
 
 }
 
@@ -72,12 +76,48 @@ body {
     font-size: 36px;
     margin-left: 50px;
 }
-.sidenavStats p {
-  font-family: Palatino;
-}
 
+.sidenavStats p {
+    font-family: Palatino;
+}
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
 }
+
+#table-area {
+    position: relative;
+    height: 800px;
+    background: url("temptable.jpg") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+.cardsize {
+    width: 100px;
+    height: 150px;
+}
+
+.grid-container {
+    position: absolute;
+    left: calc(50% - 250px);
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+}
+
+.column {
+
+}
+
+	

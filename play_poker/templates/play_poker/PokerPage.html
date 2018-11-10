@@ -1,10 +1,6 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
-{% block title %}
-    Place Holder Poker Page
-{% endblock %}
-
 {% block scripts %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{% static "play_poker/PokerPage.css" %}" rel="stylesheet">
@@ -16,11 +12,70 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
+
+        window.onload = function displayHand() {
+            let hand = {{ hand|safe }}; // note, this returns our object as a string, we need to JSON parse it
+            for (let i = 0; i < hand.length; i++) {
+                let card = hand[i];
+                let translate_image = "";
+                if (card.hasOwnProperty('value')) {
+                    if (card.value === "Jack") {
+                        translate_image += 'J'
+                    }
+                    else if (card.value === "Queen") {
+                        translate_image += 'Q'
+                    }
+                    else if (card.value === "King") {
+                        translate_image += 'K'
+                    }
+                    else if (card.value === "Ace") {
+                        translate_image += 'A'
+                    }
+                    else {
+                        translate_image += card.value
+                    }
+                }
+
+                if (card.hasOwnProperty('suit')) {
+                    if (card.suit === "Hearts") {
+                        translate_image += 'H.jpg'
+                    }
+                    else if (card.suit === "Diamonds") {
+                        translate_image += 'D.jpg'
+                    }
+                    else if (card.suit === "Spades") {
+                        translate_image += 'S.jpg'
+                    }
+                    else if (card.suit === "Clubs") {
+                        translate_image += 'C.jpg'
+                    }
+                }
+                console.log("Index: " + i +", Value: " + translate_image);
+                changeCardImage(i, translate_image);
+
+            }
+
+        };
+
+
+        function changeCardImage(cardNumber, cardImg) {
+            cardNumber++; // our html defines our hand starting at 1, the call gives us an index starting at 0
+            let cardElem = "pos" + cardNumber;
+            console.log("Changing the image for " + cardElem + " to " + cardImg);
+
+            let cardSrc = "{% static "play_poker/card_images/" %}" + cardImg; // Django static serving fun
+            console.log(cardSrc);
+            let element = document.getElementById(cardElem);
+            console.log(element);
+            element.setAttribute("src", cardSrc);
+        }
+
     </script>
 {% endblock %}
 
 
 {% block content %}
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -37,18 +92,19 @@
             <p>Hands that beat yours: <br>Placeholder</p>
 
         </div>
-
     </div>
-
     <span class="fa fa-bar-chart" style="font-size:30px;cursor:pointer" onclick="openNav()"> </span>
-    <p>
-        You were dealt:<br>
-        {% for card in hand %}
-            {{ card.value }} of {{ card.suit }}<br>
-        {% endfor %}
-        <br>
-    </p>
 
+
+    <div id="table-area">
+        <div class="grid-container">
+            <img id="pos1" class="cardsize" src="{% static "play_poker/card_images/10C.jpg" %}" alt=""/>
+            <img id="pos2" class="cardsize" src="{% static "play_poker/card_images/10C.jpg" %}" alt=""/>
+            <img id="pos3" class="cardsize" src="{% static "play_poker/card_images/10C.jpg" %}" alt=""/>
+            <img id="pos4" class="cardsize" src="{% static "play_poker/card_images/10C.jpg" %}" alt=""/>
+            <img id="pos5" class="cardsize" src="{% static "play_poker/card_images/10C.jpg" %}" alt=""/>
+        </div>
+    </div>
 
     {% next_button %}
 

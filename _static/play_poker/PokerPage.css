@@ -108,12 +108,21 @@ body {
 }
 
 .grid-container {
-    position: absolute;
-    left: calc(50% - 250px);
-    bottom: 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 
+}
+
+.allign-top {
+    position: absolute;
+    left: calc(50% - 250px);
+    top: 0;
+}
+
+.allign-bottom {
+    position: absolute;
+    left: calc(50% - 250px);
+    bottom: 0;
 }
 
 .column {

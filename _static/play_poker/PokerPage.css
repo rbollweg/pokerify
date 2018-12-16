@@ -1,5 +1,44 @@
 body {
     font-family: "Lato", sans-serif;
+    background-color: black;
+}
+
+@keyframes title {
+    0% {
+        opacity: 0;
+        top: 0;
+    }
+
+    100% {
+        opacity: 1;
+        top: 100px;
+        left: 350px;
+    }
+}
+
+@keyframes hand {
+    0% {
+        opacity: 0;
+        left: 0;
+    }
+    100% {
+        opacity: 1;
+        left: 410px;
+    }
+}
+
+h1 {
+
+    position: absolute;
+    top: 100px;
+    left: 350px;
+    color: white;
+    font-weight: bold;
+    font-size: 150px;
+    animation-name: title;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    display: inline-block;
 }
 
 .otree-body {
@@ -36,32 +75,30 @@ body {
 
 .sidenav {
     height: 100%;
-    width: 0px;
+    width: 0;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #DCDCDC;
     overflow-x: hidden;
     padding-top: 10px;
     outline: 2px solid #808080;
     transition: 0.5s;
+    background-image: url(sb_image.jpg);
 
 }
 
 .sidenav a {
     padding: 8px 8px 8px 20px;
-    text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: white;
     display: block;
 }
 
 .sidenav p {
-    padding: 15px 20px 20px 20px;
-    text-decoration: none;
+    padding: 15px 20px 2% 20px;
     font-size: 15px;
-    color: black;
+    color: white;
     display: block;
 }
 
@@ -70,11 +107,12 @@ body {
 }
 
 .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
+    /*position: relative;
+    top: 250px;
+    left: 135px;*/
+    float: right;
     font-size: 36px;
-    margin-left: 50px;
+    margin-right: 15px;
 }
 
 .sidenavStats p {
@@ -88,6 +126,66 @@ body {
 
     .sidenav a {
         font-size: 18px;
+    }
+}
+
+@keyframes button1 {
+    0% {
+        opacity: 0;
+        left: 0;
+    }
+    100% {
+        opacity: 1;
+        left: 800px;
+    }
+}
+
+.btn {
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    color: darkgreen;
+    background-color: white;
+    padding: 5px 10px 8px 10px;
+    cursor: pointer;
+}
+
+.example {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    bottom: 100px;
+
+}
+
+.btn:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.deck {
+    position: absolute;
+    left: 47%;
+    bottom: 42%;
+    animation-name: deck1;
+    animation-duration: 3s;
+
+}
+
+.center-middle {
+    position: absolute;
+    left: 47%;
+    bottom: 35%;
+}
+
+@keyframes deck1 {
+    0% {
+        opacity: 0;
+        left: 0;
+    }
+    100% {
+        opacity: 1;
+        left: 450px;
     }
 }
 
@@ -108,8 +206,14 @@ body {
 }
 
 .grid-container {
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    animation-name: hand;
+    animation-duration: 4s;
+    display: inline-block;
+    position: relative;
+    grid-column-gap: .5fr;
+    left: 410px;
+    bottom: 590px;
 
 }
 

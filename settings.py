@@ -19,6 +19,8 @@ SESSION_CONFIGS = [
         'num_demo_participants': 2,
         'app_sequence': ['play_poker'],
         'set_up': False,
+        'use_browser_bots': False
+
     }
 ]
 # see the end of this file for the inactive session configs

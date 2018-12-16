@@ -8,5 +8,5 @@ from .models import Constants
 class PlayerBot(Bot):
 
     def play_round(self):
-        yield (pages.PokerPage)
+        yield (pages.PokerPage, {'did_player_bet': True})
         yield (pages.ResultsPage)

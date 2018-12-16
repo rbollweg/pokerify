@@ -50,7 +50,7 @@
                         translate_image += 'C.jpg'
                     }
                 }
-                console.log("Index: " + i +", Value: " + translate_image);
+                console.log("Index: " + i + ", Value: " + translate_image);
                 changeCardImage(i, translate_image);
 
             }
@@ -78,13 +78,10 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">X</a>
 
         <div id="sideNavStats" class="sidenavStats">
-
-            <p style="color:black;font-size:35px;font-weight: bold; font-family: Century Gothic;">Statistics <br>
-                <span class="tooltip" style="font-size: 20px; color:gray; font-family: Impact;">Information
-   <span class="tooltiptext">This section displays which hands you should play and which can beat yours. </span></span>
+            <p style="color:yellow;font-size:35px;font-weight: bold; font-family: Century Gothic;">Statistics <br>
             </p>
             <p>Your current hand is:<br>{{ hand_type }}</p>
             <p>Your best out:<br>Placeholder</p>
@@ -104,15 +101,23 @@
             <img id="pos4" class="cardsize" src="{% static "play_poker/card_images/10C.jpg" %}" alt=""/>
             <img id="pos5" class="cardsize" src="{% static "play_poker/card_images/10C.jpg" %}" alt=""/>
         </div>
-            <div class="grid-container allign-top">
+        <div class="center-middle">
+            <button name="did_player_bet" value="True" class="btn btn-primary btn-large">Bet</button>
+            <button name="did_player_bet" value="False" class="btn btn-primary btn-large">Fold</button>
+        </div>
+
+        <div class="grid-container allign-top">
             <img class="cardsize" src="{% static "play_poker/card_images/Grayback.jpg" %}" alt=""/>
             <img class="cardsize" src="{% static "play_poker/card_images/Grayback.jpg" %}" alt=""/>
             <img class="cardsize" src="{% static "play_poker/card_images/Grayback.jpg" %}" alt=""/>
             <img class="cardsize" src="{% static "play_poker/card_images/Grayback.jpg" %}" alt=""/>
             <img class="cardsize" src="{% static "play_poker/card_images/Grayback.jpg" %}" alt=""/>
         </div>
+        <div class="deck">
+            <img class="cardsize" src="{% static "play_poker/card_images/Grayback.jpg" %}" alt=""/>
+
+        </div>
     </div>
 
-    {% next_button %}
 
 {% endblock %}

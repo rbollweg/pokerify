@@ -1,7 +1,6 @@
 from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
 )
-from otree.db.models import Model, ForeignKey
 from copy import deepcopy
 from play_poker.poker_controller import PokerGame, Round
 
@@ -17,7 +16,6 @@ class Constants(BaseConstants):
     name_in_url = 'Pokerify'
     players_per_group = 2
     num_rounds = 100
-
 
 
 class Subsession(BaseSubsession):
@@ -39,6 +37,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     winner = models.BooleanField(initial=False)
+    did_player_bet = models.BooleanField()
 
     def get_hand(self):
         return self.session.vars['current_round'].player_hands[self.id_in_group-1]

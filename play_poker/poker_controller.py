@@ -24,7 +24,7 @@ class PokerGame:
 
 class Round:
     player_hands = []
-    player_actions = []
+    player_actions = {}
     winners = []
     is_tie = False
 
@@ -168,7 +168,10 @@ def get_duplicate_values(hand):
 def get_hand_types(hands):
     hand_types = []
     for hand in hands:
-        hand_types.append(get_hand_type(hand))
+        if hand is not False:
+            hand_types.append(get_hand_type(hand))
+        else:  # hand that did not bet does not need a type
+            hand_types.append(-1)
     return hand_types
 
 
@@ -180,6 +183,8 @@ def determine_hand_winner(hands):
     print('Hand Type list: ' + str(hand_types))
     max_hand_type = max(hand_types)
     print('Max hand type is: ' + str(max_hand_type))
+    if max_hand_type == -1:
+        return []  # if no one bet, no one wins
     indices = []
     for i, hand_type in enumerate(hand_types):  # Should be rewritten, loop is redundant, but deadlines
         if hand_type == max_hand_type:

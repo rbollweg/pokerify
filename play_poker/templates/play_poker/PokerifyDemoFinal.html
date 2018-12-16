@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Pokerify Demo</title>
+<style>
+
+	body{
+		background-color: black;
+	}
+	
+	h1{
+	 
+		position: absolute;
+		top: 100px;
+		left: 350px;
+		color: white;
+		font-weight: bold;
+		font-size: 150px;
+		animation-name: title;
+		animation-duration: 4s;
+		animation-fill-mode: forwards;
+		display: inline-block;
+	}
+	
+	@keyframes title{
+		0%{
+			opacity: 0;
+			top: 0px
+		}
+		
+		100%{
+			opacity: 1;
+			top: 100px;
+			left: 350px;
+		}
+	}
+	
+	@keyframes hand{
+		0%{
+			opacity: 0;
+		 	left: 0px
+		  }
+		100%{
+			opacity: 1;
+			left: 410px;
+			}
+	}
+	
+	.pokerTable{
+		background-image: url("../../../../../../Desktop/PokerifyDemo/PokerifyDemo/temptable.jpg");
+ 		background-repeat: no-repeat;
+		width: 1920px;
+		height: 1020px;
+		
+	}
+	.cardsize{
+		width: 70px;
+		height: 75px%;
+	}
+	
+	.grid-container{
+		animation-name: hand;
+		animation-duration: 4s;
+		display:inline-block;
+		position: relative;
+		display: grid;
+		grid-template-columns: 50px 50px 50px 50px 50px;
+		grid-column-gap: 25px;
+		left: 410px;
+		bottom: 590px;
+		
+	}
+	
+	.example{
+		position: relative;
+		width: 200px;
+		height: 200px;
+		bottom: 100px;
+		
+	}
+	
+	@keyframes button1{
+		0%{
+			opacity: 0;
+		 	left: 0px
+		  }
+		100%{
+			opacity: 1;
+			left: 800px;
+			}
+	}
+	
+
+	.button {
+	position: relative;
+	display: inline-block;
+    border-radius: 5px;
+    color: darkgreen;
+    background-color: white;
+    padding: 5px 10px 8px 10px;
+	bottom: 660px;
+	left: 800px;
+	cursor: pointer;
+	animation-name: button1;
+	animation-duration: 3s;
+  }
+
+	.button:hover{
+		 background-color: #4CAF50;
+ 		 color: white;
+	}
+	
+	.deck{
+		position: absolute;
+		left: 450px;
+		bottom: 550px;
+		animation-name: deck1;
+		animation-duration: 3s;
+		animation-fill-mode: forwards;
+		
+	}
+	
+	@keyframes deck1{
+			0%{
+			opacity: 0;
+			bottom: 0px;
+		 	left: 0px
+		  }
+		100%{
+			opacity: 1;
+			bottom: 750px;
+			left: 450px;
+			}
+	}
+	}
+	
+	
+	
+	</style>
+</head>
+
+<body>
+	<h1>Pokerify</h1>
+	
+	<div class="pokerTable"></div>
+	
+	<div class = "grid-container">
+	<img id="pos1" class="cardsize" src="../../../../../../Desktop/PokerifyDemo/PokerifyDemo/Card Images/8S.jpg"  alt=""/>
+	<img id="pos2" class="cardsize" src="../../../../../../Desktop/PokerifyDemo/PokerifyDemo/Card Images/10C.jpg" alt=""/>
+	<img id="pos3" class ="cardsize" src="../../../../../../Desktop/PokerifyDemo/PokerifyDemo/Card Images/JD.jpg" alt=""/>
+	<img id="pos4" class ="cardsize" src="../../../../../../Desktop/PokerifyDemo/PokerifyDemo/Card Images/KH.jpg" alt=""/>
+	<img id="pos5" class ="cardsize" src="../../../../../../Desktop/PokerifyDemo/PokerifyDemo/Card Images/7C.jpg" alt=""/>
+	</div>
+	
+	
+	
+	<button class = "button">Bet</button>
+	<button class = "button">Fold</button>
+	
+	<div class = "deck">
+		<img class="cardsize" src="../../../../../../Desktop/PokerifyDemo/PokerifyDemo/Card Images/Grayback.jpg"  alt=""/>
+		
+	</div>
+	 
+	<script>
+	var cardImgArray = new Array();
+		cardImgArray[0] = new Image();
+		cardImgArray[0] = "Card Images/2C.jpg";
+		cardImgArray[1] = new Image();
+		cardImgArray[1] = "Card Images/3C.jpg";
+		cardImgArray[2] = new Image();
+		cardImgArray[2] = "Card Images/4C.jpg";
+		cardImgArray[3] = new Image();
+		cardImgArray[3] = "Card Images/5C.jpg";
+		cardImgArray[4] = new Image();
+		cardImgArray[4] = "Card Images/6C.jpg";
+		cardImgArray[5] = new Image();
+		cardImgArray[5] = "Card Images/6C.jpg";
+		cardImgArray[4] = new Image();
+		cardImgArray[4] = "Card Images/7C.jpg";
+		cardImgArray[4] = new Image();
+		cardImgArray[4] = "Card Images/7C.jpg";
+		cardImgArray[4] = new Image();
+		cardImgArray[4] = "Card Images/8C.jpg";
+		cardImgArray[4] = new Image();
+		cardImgArray[4] = "Card Images/8C.jpg";
+		cardImgArray[4] = new Image();
+		cardImgArray[4] = "Card Images/9C.jpg";
+		cardImgArray[4] = new Image();
+		cardImgArray[4] = "Card Images/C.jpg";
+		cardImgArray[4] = new Image();
+		cardImgArray[4] = "Card Images/6C.jpg";
+		cardImgArray[4] = new Image();
+		cardImgArray[4] = "Card Images/6C.jpg";
+	</script>	
+</body>
+</html>
